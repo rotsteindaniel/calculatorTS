@@ -1,95 +1,62 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+
+import { useState } from "react";
+import Button from "./components/Button";
+import styles from "./page.module.css";
 
 export default function Home() {
+  const [value, setValue] = useState<number | string>();
+
+  const [num, setNum] = useState(0);
+  const [storedNum, setStoredNum] = useState(0);
+  const [operator, setOperator] = useState("");
+
+  const handleButtonClick = (buttonValue: number | string) => {
+    console.log(buttonValue);
+  };
+
+  const inputNum = (buttonValue: number) => {
+    console.log(buttonValue);
+  };
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+      <div className={styles.input}>
+        <h1>789456</h1>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className={styles.input}>
+        <h1>{value}</h1>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className={styles.div}>
+        <Button value={7} onClick={inputNum} />
+        <Button value={8} onClick={inputNum} />
+        <Button value={9} onClick={inputNum} />
+        <Button value={"C"} color="orange" onClick={handleButtonClick} />
+      </div>
+      <div className={styles.div}>
+        <Button value={4} onClick={inputNum} />
+        <Button value={5} onClick={inputNum} />
+        <Button value={6} onClick={inputNum} />
+        <Button value={"+"} color="orange" onClick={handleButtonClick} />
+      </div>
+      <div className={styles.div}>
+        <Button value={1} onClick={inputNum} />
+        <Button value={2} onClick={inputNum} />
+        <Button value={3} onClick={inputNum} />
+        <Button value={"-"} color="orange" onClick={handleButtonClick} />
+      </div>
+      <div className={styles.div}>
+        <Button value={"+/-"} color="orange" onClick={handleButtonClick} />
+        <Button value={0} onClick={inputNum} />
+        <Button value={"."} color="orange" onClick={handleButtonClick} />
+        <Button value={"x"} color="orange" onClick={handleButtonClick} />
+      </div>
+      <div className={styles.div}>
+        <Button value={"%"} color="orange" onClick={handleButtonClick} />
+        <Button value={"/"} color="orange" onClick={handleButtonClick} />
+        <Button value={"="} color="orange" onClick={handleButtonClick} />
+        <Button value={"<="} color="orange" onClick={handleButtonClick} />
       </div>
     </main>
-  )
+  );
 }
